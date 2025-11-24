@@ -24,6 +24,29 @@ Value objects are created and destroyed in microseconds via an *infinite-mint / 
 
 ---
 
+## **_What “Stateless” Actually Means (Important Clarification)_**
+
+**_In Mowsie, “stateless” does **not** refer to sovereign states or national identity.  
+It means the protocol maintains **no persistent ledger state whatsoever**—no balances, no accounts, no transaction history, and no lineage of value objects._**
+
+**_Every value object exists only for a single transition and is burned immediately afterward._**
+
+- **Stateful systems** (Bitcoin, Ethereum, Solana):  
+  - Record every transaction forever  
+  - Accumulate history  
+  - Maintain long-lived account balances  
+  - Grow in size over time  
+
+- **Mowsie:**  
+  - **No addresses, no balances, no transaction log**  
+  - **Only the current state root exists**  
+  - **No transaction graph to analyze or attack**  
+  - **Value is anchored on Bitcoin; motion happens in a memoryless ZK fabric**
+
+**_Statelessness is the core innovation: money exists only in the present state, enabling pure velocity, strong privacy, and a radically minimized attack surface._**
+
+---
+
 ## Design Goals
 
 - **Statelessness by construction**  
