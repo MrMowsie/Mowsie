@@ -140,8 +140,7 @@ Mowsie cannot inflate because its internal objects cannot persist.
 ## Repository Contents
 
 - `MonetaryFabricWhitePaper.pdf` – Stateless monetary fabric theory  
-- `MetabolicEpocsWhitePaper.pdf` – Metabolic epoch governance model  
-- `MowsieWhitePaper.pdf` – Full specification, proofs, and threat model  
+- `MetabolicEpocsWhitePaper.pdf` – Metabolic epoch governance model   
 - `LICENSE` – MIT license  
 - `README.md` – This document  
 
