@@ -1,4 +1,4 @@
-#Mowsie
+# Mowsie
 
 A Monetary Fabric for Stateless Bitcoin Velocity
 Money Without Memory
