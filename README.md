@@ -1,173 +1,238 @@
-# Mowsie
+Mowsie
 
-**A Monetary Fabric for Stateless Bitcoin Velocity**  
-*Money Without Memory*
+A Monetary Fabric for Stateless Bitcoin Velocity
+Money Without Memory
 
-> “…and through the eyelet lay an absurdly small black hole, no larger than a mouse.”
+“…and through the eyelet lay an absurdly small black hole, no larger than a mouse.”
 
----
+Overview
 
-## Overview
-
-Mowsie is a **stateless, zero-knowledge monetary fabric** for Bitcoin.  
-It enables instant, private BTC-denominated transfers **without** operating a blockchain, ledger, token, or independent consensus system.
+Mowsie is a stateless, zero-knowledge monetary fabric for Bitcoin.
+It enables instant, private BTC-denominated transfers without operating a blockchain, ledger, token, or independent consensus system.
 
 Users:
 
-1. Deposit native BTC into a vault on Bitcoin.  
-2. Generate zero-knowledge commitments.  
-3. Move value inside a minimal, proof-verified fabric (on Solana) where **no transaction history is ever stored**.
+Deposit native BTC into a vault on Bitcoin.
 
-Value objects are created and destroyed in microseconds via an *infinite-mint / instant-burn* engine. They exist only long enough to complete a state transition. The system retains **only a single evolving state root**, never a transaction graph.
+Generate zero-knowledge commitments.
 
-📄 **Whitepaper:** [MowsieWhitePaper.pdf](./MowsieWhitePaper.pdf)
+Move value inside a minimal, proof-verified fabric (on Solana) where no transaction history is ever stored.
 
----
+Value objects are created and destroyed in microseconds via an infinite-mint / instant-burn engine. They exist only long enough to complete a state transition. The system retains one evolving state root, never a transaction graph.
 
-## **_What “Stateless” Actually Means (Important Clarification)_**
+📄 Whitepapers
 
-**_In Mowsie, “stateless” does **not** refer to sovereign states or national identity.  
-It means the protocol maintains **no persistent ledger state whatsoever**—no balances, no accounts, no transaction history, and no lineage of value objects._**
+Stateless Monetary Fabric Whitepaper – MonetaryFabricWhitePaper.pdf
 
-**_Every value object exists only for a single transition and is burned immediately afterward._**
+Metabolic Epochs Whitepaper – MetabolicEpocsWhitePaper.pdf
 
-- **Stateful systems** (Bitcoin, Ethereum, Solana):  
-  - Record every transaction forever  
-  - Accumulate history  
-  - Maintain long-lived account balances  
-  - Grow in size over time  
+What “Stateless” Actually Means
 
-- **Mowsie:**  
-  - **No addresses, no balances, no transaction log**  
-  - **Only the current state root exists**  
-  - **No transaction graph to analyze or attack**  
-  - **Value is anchored on Bitcoin; motion happens in a memoryless ZK fabric**
+“Stateless” does not refer to nationality or sovereign statehood.
+It means the protocol maintains:
 
-**_Statelessness is the core innovation: money exists only in the present state, enabling pure velocity, strong privacy, and a radically minimized attack surface._**
+no balances
 
----
+no addresses
 
-## Design Goals
+no transaction history
 
-- **Statelessness by construction**  
-  - No addresses, no balances, no transaction log, no lineage.  
-  - Only the current state root is stored on-chain.
+no lineage of value objects
 
-- **Bitcoin as the store of value**  
-  - BTC in a unified vault represents all long-term value.  
-  - Mowsie is a *velocity layer*, not a competing asset or chain.
+Every value object exists for one transition and is burned immediately afterward.
 
-- **Minimal, auditable surface**  
-  - Fixed proving circuit; no scripting VM.  
-  - Small attack surface that can be formally analyzed.
+Stateful Systems (Bitcoin, Ethereum, Solana)
 
-- **No token, no market cap, no TVL games**  
-  - The protocol has **no native token**, no inflation schedule, and no speculative surface.  
-  - The only meaningful quantity is BTC in the vault at any given moment.
+Retain every transaction forever
 
-- **Self-sustaining via crumbs**  
-  - A single satoshi fee (“crumb”) on deposits, withdrawals, internal sends, and wallet renewals.  
-  - Orphaned crumbs accumulate to fund infrastructure, maintenance, and public goods (the “Feast of Crumbs”).
+Accumulate history
 
----
+Maintain balances
 
-## High-Level Architecture
+Grow in size indefinitely
 
-**Settlement Layer – Bitcoin**
+Mowsie
 
-- Native BTC deposited into a consolidated on-chain UTXO pool.  
-- Bitcoin provides consensus, immutability, and long-term value storage.  
-- No wrapped tokens or synthetic BTC.
+No transaction log
 
-**Verification Layer – Solana**
+No account balances
 
-- Verifies zero-knowledge proofs and maintains the live state root.  
-- Does **not** hold user funds or execute arbitrary application logic.  
-- Functions purely as a high-throughput proof verifier.
+No address graph
 
-**Monetary Fabric – Mowsie**
+Only one state root
 
-- Stateless ZK value layer.  
-- Users hold secrets locally; the fabric knows only commitments.  
-- Infinite-mint / instant-burn engine ensures:
-  - Conservation of value (∑B_old = ∑B_new).  
-  - No structural link between old and new commitments.  
+Pure velocity, zero persistence
 
----
+This is the first monetary system designed where money has a lifespan measured in microseconds—existing only at the moment of transfer.
 
-## Key Concepts
+Design Goals
 
-### Infinite-Mint / Instant-Burn Engine
+Radical statelessness
+Only the current state root exists; nothing else is stored.
 
-Each value object inside the fabric follows a three-step lifecycle:
+Bitcoin as the store of value
+Mowsie is a velocity layer, not a competing chain or asset.
 
-1. **Mint** – created as a fresh commitment.  
-2. **Use** – consumed as input to a state transition.  
-3. **Burn** – destroyed immediately as the new commitment is created.
+Minimal attack surface
+A fixed circuit and no scripting VM drastically reduce complexity.
 
-Nothing persists beyond the current step. This eliminates inflation while collapsing money down to its purest form: a **momentary carrier of value** that exists only long enough to move.
+No token, no governance, no speculation
+The protocol has no native asset and cannot inflate.
 
-### Stateless Root Evolution
+Self-funded via crumbs
+A single satoshi (“crumb”) fuels internal computation and wallet activation.
+Orphaned crumbs accumulate to sustain infrastructure — the Feast of Crumbs.
 
-Instead of storing a history of objects, Mowsie maintains only a single state root:
+High-Level Architecture
+Bitcoin — Settlement Layer
 
-\[
-\text{Root}_{t+1} = \text{Update}(\text{Root}_t, \pi)
-\]
+Native BTC held in a consolidated UTXO vault
 
-Where:
+No wrapped tokens
 
-- *t* is the current state-transition index.  
-- *π* is the zero-knowledge proof attesting to the correctness of the transition.
+Bitcoin provides long-term security and immutability
 
-No intermediate commitments persist; only the evolving root is retained.
+Solana — Verification Layer
 
-### Economic Model
+Verifies zero-knowledge proofs
 
-- No token, no market cap, no circulating supply.  
-- Fees are charged in single-sat “crumbs”.  
-- Expired wallets’ crumbs revert to the protocol and are swept into a DAO-controlled Mowsie wallet via the **Feast of Crumbs** mechanism.  
-- Inflation is impossible at the fabric level because value cannot be stored there beyond a microsecond.
+Maintains the evolving state root
 
----
+Holds no funds and executes no arbitrary logic
 
-## Repository Contents
+Mowsie — Monetary Fabric
 
-- `MowsieWhitePaper.pdf` – Formal specification and threat model.  
-- `LICENSE` – MIT license granting broad use, modification, and distribution rights.  
-- `README.md` – Project overview (this document).
+Stateless ZK value domain
 
-Implementation code, reference clients, and SDKs will be added in future revisions of the project.
+Users hold secrets locally
 
----
+Infinite-mint / instant-burn lifecycle ensures:
 
-## Project Status
+strict conservation of value
 
-Mowsie is currently in the **research and specification** phase.
+no stored history
 
-Planned next steps:
+no persistent commitments
 
-- Formalization of the proving circuits and commitment scheme.  
-- Reference implementation of the vault logic and verifier contracts.  
-- Testnet deployment and third-party security review.  
+Key Concepts
+Infinite-Mint / Instant-Burn Engine
 
----
+Inside the fabric, every value object is:
 
-## Contributing
+Minted
 
-Feedback, critique, and formal review are highly encouraged.
+Used
 
-If you’d like to contribute:
+Burned
 
-- Open an **Issue** for discussion, security considerations, or design questions.  
-- Submit **Pull Requests** for documentation improvements, formalizations, or prototype implementations.  
-- Share independent analyses or audits referencing this repository.
+It exists only long enough to move value forward.
+This prevents inflation while producing a form of “momentary money” that cannot persist or accumulate.
 
-Please keep discussion focused on protocol design, security, and real-world deployment considerations.
+Stateless Root Evolution
 
----
+Instead of storing old data, Mowsie updates a single state root:
 
-## License
+Root
+𝑡
++
+1
+=
+Update
+(
+Root
+𝑡
+,
+𝜋
+)
+Root
+t+1
+	​
 
-This project is licensed under the **MIT License**.  
-See [`LICENSE`](./LICENSE) for details.
+=Update(Root
+t
+	​
+
+,π)
+
+No history exists between transitions — only a proof that the new state is valid.
+
+Economic Model: Crumbs & Blink Credits
+
+No token
+
+No circulating supply
+
+No governance
+
+Internal actions require burning crumbs (single sats)
+
+Crumbs convert into blink credits, which represent internal computation
+
+Expired wallets’ crumbs feed into the Feast of Crumbs, sustaining the protocol
+
+Repository Contents
+
+MonetaryFabricWhitePaper.pdf
+Formal definition of the stateless monetary fabric and the infinite-mint / instant-burn engine.
+
+MetabolicEpocsWhitePaper.pdf
+The metabolic, living-wallet epoch system that powers the blink economy and adaptive difficulty.
+
+MowsieWhitePaper.pdf
+Original combined whitepaper draft.
+
+LICENSE — MIT License
+
+README.md — This document
+
+Future additions will include:
+
+Reference circuits
+
+Vault implementation
+
+Verifier contract
+
+Developer SDKs
+
+Testnet clients
+
+Project Status
+
+Mowsie is in the active R&D phase.
+
+Next Steps
+
+Formalizing proving circuits
+
+Building a reference client
+
+Implementing vault + verifier logic
+
+Launching a testnet
+
+Third-party audits
+
+Public circuit verification
+
+Contributing
+
+Contributions are welcome.
+
+You can:
+
+Open issues for discussion or analysis
+
+Submit PRs for documentation, formalization, or implementation
+
+Propose improvements to the stateless fabric model or metabolic epoch system
+
+Share independent research, security analyses, or simulations
+
+Please keep contributions focused and technical.
+
+License
+
+Mowsie is released under the MIT License.
+See LICENSE
+ for details.
