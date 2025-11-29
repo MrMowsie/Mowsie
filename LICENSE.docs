@@ -1,24 +1,23 @@
-Copyright (c) 2025 MrMowsie  
-All Rights Reserved.
+© 2025 MrMowsie — All Rights Reserved.
 
-The following materials are NOT licensed under the MIT License and may NOT be copied, modified, distributed, or used commercially without explicit written permission from the author:
+This document, including all terminology, protocol descriptions, cryptographic constructions, diagrams, economic models, design language, and narrative elements, is NOT licensed under the MIT License.
 
-• Whitepapers (PDFs)  
-• Protocol descriptions and explanatory text  
-• Terminology (crumbs, blinks, epochs, kalpas, Feast of Crumbs, infinite-mint/instant-burn engine, etc.)  
-• Diagrams, charts, and architectural explanations  
-• Narrative and literary elements contained within the documentation  
-• The phrase "Money Without Memory"  
-• The phrase "Velocity Enforced by Entropy"  
-• The name "Mowsie" and associated branding
+No part of this publication may be copied, modified, redistributed, incorporated into derivative works, or used for commercial or academic purposes without explicit written permission from the author.
 
-These materials are provided for personal study, academic research, and protocol review only.  
-Commercial use, republication, incorporation into products, or derivative works are strictly prohibited without written permission from the copyright holder.
+These restrictions apply to:
+- The Mowsie whitepapers
+- All conceptual descriptions of the protocol
+- Terminology unique to the system (crumbs, blinks, epochs, kalpas, mass-based ordering, metabolic wallets, etc.)
+- Diagrams, visual models, and explanatory schemas
+- Economic mechanisms and theoretical constructs
+- Branding, phrasing, narrative style, and thematic elements
 
-For licensing inquiries, contact: mowsie@yahoo.com
+This protection covers the documentation, not the code.  
+For code licensing, the MIT License applies (included below).
 
-
-MIT License
+----------------------------------------
+                MIT License
+----------------------------------------
 
 Copyright (c) 2025 MrMowsie
 
