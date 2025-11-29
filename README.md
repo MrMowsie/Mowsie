@@ -229,9 +229,10 @@ Mowsie is a **state-transition engine**, not a savings layer.
     MowsieMonetaryFabric.pdf     – Stateless monetary fabric theory
     MowsieMassBasedOrder.pdf     – Mass-based deterministic ordering
     MowsieMetabolicWallets.pdf   – Metabolic/biological gas system
+   
+    LICENSE                      – MIT licens 
     LICENSE.docs                 – Intellectual property protection (docs only)
-    LICENSE                       – MIT license
-    README.md                     – This document
+    README.md                    – This document
 
 ---
 
